@@ -1,0 +1,66 @@
+<div class="card">
+    <div class="cardheader">
+    </div>
+    <div class="avatar">
+
+        <!-- <cl-image [public-id]="imageId" cloud-name="cocacode2" [width]="imageOption.width" [height]="imageOption.height" [x]="imageOption.x" [y]="imageOption.y" crop="crop" radius="max"></cl-image> -->
+        <img [src]="user.avaImg" alt="" />
+
+    </div>
+
+
+</div>
+<!-- <div  *ngIf="showModal" class="modal"> -->
+<div *ngIf="showDialog" class="dialog">
+
+    <div class="dialog-title">
+      <h3>IMPRESS YOUR TARGET</h3>
+    </div>
+    <textarea type="text" [(ngModel)]="countMessage" maxlength="160" name="message" placeholder="You have one chance to impress your target. In 160 characters or less..."></textarea>
+    <p>{{countMessage.length}}/160</p>
+    <div class="dialog-button">
+      <button name="bSend" class="btn btn-default send" (click)="sendMessage(countMessage)" > Send </button>
+      <button name="bCancel" class="btn btn-default" (click)="interestClose()"> Cancel</button>
+
+    </div>
+
+</div>
+
+<div *ngIf="!showMatch" class="takeQuiz">
+
+  <div class="takeQuiz-title">
+    <img src="assets/images/whoareyou.jpg" alt="">
+    <h1>WHO ARE YOU?</h1>
+
+    <h4>A 20-Question Self-Test To Define Who You Are...</h4>
+    <button type="button" [routerLink]="['/quiz']" name="doQuiz">TAKE QUIZ</button>
+
+  </div>
+
+</div>
+
+<div class="match_list" *ngIf="showMatch">
+  <h1>People who match you</h1>
+  <div class="match_card" *ngFor="let user of users">
+    <div class="avatar">
+      <img [src]="user.avaImg" alt="">
+    </div>
+    <div class="info_group">
+      <div class="info">
+        <div class="name"><a href="./match-page/{{user.userId}}-{{user.percentage}}" >{{user.name}}</a></div>
+        <div class="age">{{ getAge(user.birthday) }} years old</div>
+        <div class="address">from {{user.address}}</div>
+        <div class="percentage">Match {{user.percentage}}%</div>
+      </div>
+
+      <div class="interest">
+        <div [class]="'progress-circle  progress-' + user.percentage"><span>{{user.percentage}}</span></div>
+        <div><button (click)="interestShow(user)" *ngIf="!user.interested">Interest</button></div>
+        <div><button (click)="interestShow(user)" *ngIf="user.interested" disabled="true">Interested</button></div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

@@ -1,0 +1,92 @@
+.register_page {
+	position:relative;
+	width: 100%;
+	z-index: 100;
+
+	.title {
+		margin-top: 10%;
+		text-align: center;
+		font-family: $logo_font;
+		margin-bottom: 5%;
+
+		h1 {
+			color: $pink_N;
+			font-size: 60px;
+			font-weight: 900;
+		}
+
+		p {
+			color: #fff;
+			font-weight: 700;
+			font-size: 24px;
+		}
+	}
+
+	small {
+		display: none;
+	}
+	small.error {
+		font-size: 1.3em;
+		display: block;
+		text-align: center;
+		padding: 15px;
+	}
+	small.success {
+	font-size: 1.3em;
+	display: block;
+	text-align: center;
+	padding: 15px;
+	color: #18d8f9;
+}
+	.register-form {
+		align-content: center;
+		width: 360px;
+		margin-left: calc(50% - 180px);
+		p, a {
+			width: 250px;
+			margin-left: calc(50% - 120px);
+			color: #fff;
+			font-weight: 300;
+			font-size: 20px;
+			a:hover{
+				color: $pink_N;
+				text-decoration: underline;
+			}
+		}
+		input::placeholder {
+			color: #fff;
+		}
+
+		input {
+			width: 100%;
+			background: rgba(255,255,255,0.5);
+			border: none;
+			outline: none;
+			padding: 20px;
+			font-size: 20px;
+			color: #fff;
+			border-bottom: 1px solid rgba(0,0,2,0.1);
+
+			&.button_group {
+				color: #fff;
+				background-color: $pink_N;
+				font-size: 20px;
+				font-weight: 700;
+				display: block;
+				width: 360px;
+				margin-left: calc(50% - 180px);
+				padding: 10px 130px;
+			}
+		}
+
+		input:focus {
+			box-shadow: inset 0 1px 15px rgba(242,134,134,0.6), 0 1px 2px rgba(255,255,255,0.1);
+		}
+	}
+}
+
+@media screen and (max-width: 1400px) {
+	.register_page .title {
+		margin-top: 5%;
+	}
+}

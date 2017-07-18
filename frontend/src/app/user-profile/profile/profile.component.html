@@ -1,0 +1,97 @@
+<form #user="ngForm" (ngSubmit)="onSubmit(user, $event)" class="form-horizontal" role="form">
+
+  <!-- Name input ----->
+  <div class="form-group">
+      <label class="col-md-1 col-sm-1 col-xs-1 fa fa-user" aria-hidden="true" ></label>
+      <label class="col-md-2 col-sm-2 col-xs-2">Name</label>
+      <div class="col-md-8 col-sm-8 col-xs-8">
+        <label class="col-md-6 col-sm-6 col-xs-6" *ngIf="!editName"> {{ userRes.name }} </label>
+        <input pattern="^[a-zA-Z\s]+$" title="Only Alphabet" maxlength="22" class="col-md-4 col-sm-4 col-xs-4" *ngIf="editName" id = "username" name="name" type="text" value="" class="form-control input-md" required="" [(ngModel)] = "userRes.name">
+      </div>
+      <button type="button" id="edit" class="col-md-1 col-sm-1 col-xs-1 fa fa-pencil" (click)="editName=true"></button>
+    </div>
+
+    <!-- Gender input ----->
+    <div class="form-group">
+      <label class="col-md-1 col-sm-1 col-xs-1 fa fa-venus-mars"></label>
+      <label class="col-md-2 col-sm-2 col-xs-2">Gender</label>
+      <div class="col-md-8 col-sm-8 col-xs-8">
+        <div class="col-md-4 col-sm-4 col-xs-4">
+          <label><input required id="radioGen" type="radio" name="gender"  value = "male" [(ngModel)] = "userRes.gender" [checked]=" userRes.gender === 'male' ">Male</label>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-4">
+          <label ><input id="radioGen" type="radio" name="gender" value = "female" [(ngModel)] = "userRes.gender" [checked]=" userRes.gender === 'female' " >Female</label>
+        </div>
+      </div>
+
+    </div>
+
+  <!-- Birthday input ----->
+  <div class="form-group">
+    <label class="col-md-1 col-sm-1 col-xs-1 fa fa-birthday-cake"></label>
+    <label class="col-md-2 col-sm-2 col-xs-2"> Birthday</label>
+    <div class="col-md-8 col-sm-8 col-xs-8">
+      <form class="col-md-6 col-sm-6 col-xs-6" #myForm="ngForm" novalidate>
+          <my-date-picker name="mydate" [options]="myDatePickerOptions" [defaultMonth]="defaultMonth" [(ngModel)]="model" required #birthday = "ngModel" ngModel></my-date-picker>
+      </form>
+    </div>
+  </div>
+
+  <!-- Address input ----->
+  <div class="form-group">
+      <label class="col-md-1 col-sm-1 col-xs-1 fa fa-home"></label>
+      <label class="col-md-2 col-sm-2 col-xs-2">Address</label>
+      <div class="col-md-8 col-sm-8 col-xs-8">
+        <label class="col-md-6 col-sm-6 col-xs-6" *ngIf="!editAddress"> {{userRes.address}} </label>
+        <input maxlength="22" class="col-md-4 col-sm-4 col-xs-4" *ngIf="editAddress" id="address" name="address" type="text" value="" class="form-control input-md" required="" [(ngModel)] = "userRes.address">
+      </div>
+        <button type="button" id="edit" class="col-md-1 col-sm-1 col-xs-1 fa fa-pencil" (click)="editAddress=true"></button>
+    </div>
+
+    <!-- Profession input ----->
+    <div class="form-group">
+      <label class="col-md-1 col-sm-1 col-xs-1 fa fa-briefcase"></label>
+      <label class="col-md-2 col-sm-2 col-xs-2 hidden-xs">Profession</label>
+      <label class="col-md-2 col-sm-2 col-xs-2 hidden-md hidden-sm hidden-lg">Job</label>
+      <div class="col-md-8 col-md-8 col-xs-8">
+
+        <select class=" form-control input-md col-md-6 col-sm-6 col-xs-6" required=""  name = "profession" [(ngModel)] = "userRes.profession">
+          <option *ngFor='let element of professions' [selected]="userRes.profession === element" [value]="element">{{element}}</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- BMI input ---------->
+    <div class="form-group">
+      <label class="col-md-1 col-sm-1 col-xs-1 glyphicon glyphicon-scale" ></label>
+      <label class="col-md-2 col-sm-2 col-xs-2">BMI</label>
+    <div class="col-md-8 col-sm-8 col-xs-8">
+      <div class="col-md-3 col-sm-3 col-xs-3">
+          <label *ngIf="!editBMI" id="lblBMI"> {{ userRes.height }} </label>
+          <input  *ngIf="editBMI" id = "inBMI" name="height" type="number"  min="10" max="270" step="1" [ngModel]="value"
+          (ngModelChange)="validate($event)" value="" class="form-control input-md" required="" [(ngModel)] = "userRes.height">
+      </div>
+      <label class="col-md-1 col-sm-1 col-xs-1" id="lblUnit">cm</label>
+              <!-- ------>
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <label *ngIf="!editBMI" id="lblBMI"> {{ userRes.weight }} </label>
+        <input *ngIf="editBMI" id = "inBMI" name="weight" type="number"  min="10" max="500" step="1" [ngModel]="value"
+        (ngModelChange)="validate($event)" value="" class="form-control input-md" required="" [(ngModel)] = "userRes.weight">
+      </div>
+      <label class="col-md-1 col-sm-1 col-xs-1" id="lblUnit">kg</label>
+    </div>
+      <button type="button" id="edit" class="col-md-1 col-xs-1 fa fa-pencil" (click)="editBMI=true"></button>
+
+  </div>
+    <!-- Button (Save-Cancel)--->
+    <div class="form-group">
+      <div class="button-group">
+        <div class="col-md-3 col-sm-3 col-xs-3 hidden-md"></div>
+        <button id="bSave" name="bSave" class="col-md-3 col-sm-3 col-xs-3 btn btn-default"> Save </button>
+        <button id="bCancel" name="bCancel" class="col-md-3 col-sm-3 col-xs-3 btn btn-default" [routerLink]="['/user-page']"> Cancel</button>
+        <div class="col-md-3 col-sm-3 col-xs-3 hidden-md"></div>
+      </div>
+
+    </div>
+  <!---------------------------->
+</form>

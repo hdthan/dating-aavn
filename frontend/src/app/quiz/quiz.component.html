@@ -1,0 +1,25 @@
+
+<div class="question_num">
+    <button type="button" name="button" (click)="navigate(active - 1)" [disabled]="active <= 0"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+    <p>{{active + 1}} / 20</p>
+    <!-- <button type="button" name="button"></button> -->
+    <button type="button" name="button" (click)="navigate(active + 1)" [disabled]="active >= 19 || active >= answeredQuestion"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+</div>
+
+<div *ngFor="let quiz of quizzes; let i = index" class="quiz" [ngStyle]="{ 'z-index': -i }" [ngClass]="{'show_quiz': active == i}">
+  <div class="question">
+    <h1 [@flyInOut]="state">{{quiz.content}}</h1>
+    <hr [@flyInOutLine]="state">
+  </div>
+
+  <div class="choice">
+      <input type="button" class="option-input" *ngFor="let level of agreeLevel; let j = index" [ngClass]="{'isChoosed': isChoosed(i + 1 , j + 1)}"
+            (click)="toggleMove(); onSelectionChange(i + 1, j + 1)" name="options" [value]="level" />
+  </div>
+</div>
+<div class="quiz" style="z-index: -19" [ngClass]="{'show_quiz': this.isFinished}">
+  <div class="question">
+    <h1>Finish!</h1>
+    <hr>
+  </div>
+</div>

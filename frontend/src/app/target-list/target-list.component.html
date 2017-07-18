@@ -1,0 +1,88 @@
+<div class="card">
+    <div class="cardheader">
+    </div>
+    <div class="avatar">
+
+        <!-- <cl-image [public-id]="imageId" cloud-name="cocacode2" [width]="imageOption.width" [height]="imageOption.height" [x]="imageOption.x" [y]="imageOption.y" crop="crop" radius="max"></cl-image> -->
+        <img [src]="user.avaImg" alt="" />
+
+    </div>
+
+
+</div>
+
+
+
+<div class="match_list">
+  <div class="match_card" *ngFor="let message of messages; let i = index">
+      <div class="avatar">
+        <img id="newRequest" *ngIf="message.newRequest" src="../assets/images/redPoint.png" alt="">
+        <img [src]="message.target.avaImg" alt="">
+      </div>
+      <div class="info_group">
+        <div class="info">
+          <div class="name"><a href="./match-page/{{message.target.userId}}">{{message.target.name}}</a></div>
+        <div class="message">
+          <p *ngIf="message.myReply">You: {{message.myReply}}</p>
+          <p *ngIf="message.theirReply">{{message.theirReply}}</p>
+          <p *ngIf="!message.theirReply && !message.myReply">{{message.content}}</p>
+        </div>
+        </div>
+        <div class="showMessage">
+          <button type="button" name="button" (click)="openMessageBox(message)" >Show Mesage</button>
+        </div>
+        </div>
+      </div>
+</div>
+
+
+<!-- <div  *ngIf="showModal" class="modal"> -->
+<div *ngIf="showmessageBox" class="dialog">
+
+    <section class="messages">
+        <section>
+            <h3 class="msg--date">Message Box<i class="fa fa-times" aria-hidden="true" (click)="closeMessageBox()"></i></h3>
+            <div *ngIf="currentMessage.myRequest">
+              <div class="msg msg--me">
+                  <blockquote>{{currentMessage.content}}</blockquote>
+              </div>
+            </div>
+            <div *ngIf="currentMessage.newRequest">
+              <div class="msg msg--them">
+                  <blockquote>{{currentMessage.content}}</blockquote>
+              </div>
+            </div>
+            <div *ngIf="currentMessage.myReply">
+              <div class="msg msg--them">
+                  <blockquote>{{currentMessage.content}}</blockquote>
+              </div>
+              <div class="msg msg--me">
+                  <blockquote>{{currentMessage.myReply}}</blockquote>
+              </div>
+            </div>
+            <div *ngIf="currentMessage.theirReply">
+              <div class="msg msg--me">
+                  <blockquote>{{currentMessage.content}}</blockquote>
+              </div>
+              <div class="msg msg--them">
+                  <blockquote>{{currentMessage.theirReply}}</blockquote>
+              </div>
+            </div>
+            <!-- <div class="msg msg--them">
+                <blockquote>Lorem ipsum dolor sit amet, mei mutat porro graeco at. Liber dolorum postulant sed eu. Ut diam audiam duo, eu detracto perpetua evertitur vel.</blockquote>
+            </div> -->
+
+        </section>
+    </section>
+
+    <p *ngIf="currentMessage.newRequest">{{countMessage.length}}/160</p>
+    <div class="input-area" *ngIf="currentMessage.newRequest">
+      <textarea type="text" [(ngModel)]="countMessage" maxlength="160" name="message" rows="1" placeholder="Say something..."></textarea>
+      <button name="bSend" (click)="sendMessage(countMessage)"><i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i></button>
+    </div>
+</div>
+    <!-- <form>
+        <input type="text" placeholder="Your message" />
+        <div class="msg-send"><span class="fontawesome-play"/></div>
+    </form> -->
+  <!-- #e2edf1 -->

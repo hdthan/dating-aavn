@@ -1,0 +1,201 @@
+.form-horizontal{
+  width: auto;
+  height: auto;
+  margin-top: 10%;
+  margin-left: 5%;
+  box-sizing: border-box;
+  font-size: 20px;
+  .form-group {
+    align-content: center;
+    width: auto;
+    float: none;
+    margin-bottom: 5%;
+   }
+   .col-md-6 {
+     font-weight: 100;
+     margin-left: 30px;
+     position: 1%;
+     padding: 0;
+     width: 300px;
+   }
+  .col-md-1 {
+    margin-right: 20px;
+    font-weight: 100;
+  }
+  .col-md-2{
+    padding: 0;
+  }
+  .col-md-4 {
+    label {
+      font-weight: 100;
+    }
+    padding-left: 0;
+    width: 150px;
+    #radioGen {
+      width: 20px;
+      height: 15px;
+      margin-left: 0;
+    }
+  }
+  .col-md-3 {
+    padding: 0;
+    margin-right: 0;
+    margin-left: 30px;
+    width: 50px;
+    #inBMI {
+      width: 70px;
+      height: 34px;
+    }
+    #lblBMI {
+      font-weight: 100;
+    }
+  }
+  .col-md-8 {
+    width: 370px;
+    #lblUnit {
+      padding-left: 25px;
+    }
+    select {
+      width: 200px;
+      height: 34px;
+      margin-top: -3px;
+    }
+    #radioGen {
+      margin-left: 30px;
+    }
+    #username, #address {
+      margin-left: 30px;
+      width: 300px;
+    }
+  }
+  .button-group{
+    margin-top: 50px;
+    margin-left: 30px;
+    #bSave {
+      background-color: #88DAF7;
+      color: #333333;
+      width: 120px;
+      height: 40px;
+      margin-right: 5%;
+    }
+    #bCancel {
+      width: 120px;
+      height: 40px;
+      margin: auto;
+    }
+  }
+  #edit {
+    height: 30px;
+    margin-left: 0;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+  }
+}
+// //-------
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .form-group .button-group{
+    margin-left: 110px;
+  }
+}
+@media only screen and (max-width: 710px) {
+  .form-horizontal{
+    font-size: 16px;
+     .col-md-6 {
+       width: 200px;
+       margin: 0;
+     }
+    .col-md-4 {
+      width: 120px;
+      #radioGen {
+        width: 20px;
+        height: 15px;
+        margin-left: 0;
+        margin-right: 5px;
+      }
+    }
+    .col-md-3 {
+      margin-left: 0;
+      width: 30px;
+      #inBMI {
+        width: 50px;
+        height: 30px;
+      }
+    }
+    .col-md-8 {
+      width: 270px;
+
+      #username, #address {
+        margin-left: 0;
+        width: 200px;
+      }
+      #lblUnit {
+        font-size: 16px;
+        padding: 0;
+        margin-left: 25px;
+      }
+    }
+    .button-group{
+      margin-left: 30px;
+    }
+  }
+}
+@media only screen and (max-width: 559px) {
+  .form-horizontal{
+    font-size: 14px;
+     .col-xs-6 {
+       width: 150px;
+     }
+    .col-xs-1 {
+      width: 5px;
+      margin-right: 1px;
+    }
+    .col-xs-2{
+      width: 40px;
+      margin-right: 5px;
+    }
+    .col-xs-3 {
+      width: 80px;
+      margin-right: 0px;
+      #inBMI {
+        width: 60px;
+        margin-bottom: 10px;
+        height: 25px;
+      }
+    }
+    .col-xs-8 {
+      width: 170px;
+      select {
+        width: 180px;
+        height: 25px;
+      }
+      #username, #address {
+        width: 150px;
+        height: 25px;
+      }
+      #lblUnit {
+        font-size: 13px;
+        margin-left: 0px;
+      }
+    }
+    .button-group{
+      margin-top: 30px;
+      margin-left: -30px;
+      #bSave {
+        width: 80px;
+        margin-right: 3%;
+      }
+      #bCancel {
+        width: 80px;
+      }
+    }
+    #edit {
+      height: 30px;
+      width: 10px;
+      padding-bottom: 15px;
+    }
+  }
+}

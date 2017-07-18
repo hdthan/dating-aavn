@@ -1,0 +1,257 @@
+.container {
+  width: 650px;
+  height: auto;
+  margin-top: 50px;
+  margin-left: calc(50% - 300px);
+}
+
+.nav-pills > .active > a,
+.nav-pills > .active > a:hover,
+.nav-pills > li > a:hover {
+  padding-right: 100px;
+  padding-left: 100px;
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #88DAF7;
+  color: #000 !important;
+  background-color: transparent !important;
+}
+
+.nav-pills > li > a {
+  width: 300px;
+  font-size: 30px;
+  border-radius: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #888888;
+  color: #666666;
+  padding-right: 100px;
+  padding-left: 100px;
+}
+@media only screen and (max-width: 710px) {
+  .container {
+     	width: 500px;
+      height: auto;
+      margin-left: calc(50% - 220px);
+
+  }
+  .nav-pills > .active > a,
+  .nav-pills > .active > a:hover,
+  .nav-pills > li > a:hover {
+    font-size: 20px;
+    padding-right: 80px;
+    padding-left: 80px;
+  }
+  .nav-pills > li > a {
+    width: 230px;
+    font-size: 20px;
+    padding-right: 80px;
+    padding-left: 80px;
+  }
+}
+@media only screen and (max-width: 559px) {
+  .container {
+     	width: 300px;
+      margin-left: calc(50% - 140px);
+  }
+  .nav-pills > .active > a,
+  .nav-pills > .active > a:hover,
+  .nav-pills > li > a:hover {
+    font-size: 18px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  .nav-pills > li > a {
+    width: 130px;
+    font-size: 18px;
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+}
+// @media only screen and (max-width: 768px) {
+//   .container {
+//      	width: inherit;
+//       height: auto;
+//       margin-top: 50px;
+//      	margin-left: calc(50% - 300px);
+//   }
+// }
+//   @media only screen and (max-width: 320px) {
+//     .container {
+//        	width: inherit;
+//         height: auto;
+//         margin-top: 50px;
+//         margin-left: 0;
+//     }
+//     .nav-pills > .active > a,
+//     .nav-pills > .active > a:hover,
+//     .nav-pills > li > a:hover {
+//         padding-right: 0px;
+//         padding-left: 110px;
+//         font-size: 20px;
+//         text-decoration: none;
+//         font-weight: bold;
+//         border-radius:0px;
+//         border-bottom-width: 2px;
+//         border-bottom-style: solid;
+//         border-bottom-color: #88DAF7;
+//         color: #000 !important;
+//         background-color: transparent !important;
+//
+//
+//     }
+//     .nav-pills > li > a{
+//         font-size: 20px;
+//         border-radius:0px;
+//       	border-bottom-width: 1px;
+//       	border-bottom-style: solid;
+//       	border-bottom-color: #888888;
+//         color:#666666;
+//         padding-right: 0px;
+//         padding-left: 110px;
+//
+//     }
+// }
+//Cover
+
+.card {
+  width: 100%;
+  border-top-width: 0;
+  border-bottom-width: 2px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.card.hovercard {
+  position: relative;
+  padding-top: 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.card.hovercard .cardheader {
+  background: url("assets/images/cover.jpg");
+  background-size: cover;
+  height: 300px;
+  z-index: -1000;
+}
+
+.card.hovercard .avatar {
+  position: relative;
+  top: -100px;
+  margin-bottom: -100px;
+}
+
+button#edit-avatar {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.card.hovercard .avatar img {
+  width: 200px;
+  height: 200px;
+  max-width: 200px;
+  max-height: 200px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 5px solid rgba(255,255,255,0.5);
+}
+
+.card.hovercard .info {
+  margin-top: 20px;
+}
+
+.card.hovercard .info .title {
+  margin-bottom: 4px;
+  font-size: 24px;
+  line-height: 1;
+  color: #262626;
+  vertical-align: middle;
+}
+
+.card.hovercard .bottom {
+  padding: 0 20px;
+  margin-bottom: 17px;
+}
+//modal
+
+.modal {
+  /* This way it could be display flex or grid or whatever also. */
+  display: flex;
+  width: 1000px;
+  height: 500px;
+  position: fixed;
+  z-index: 9000;
+  left: 50%;
+  top: 50%;
+  /* Use this for centering if unknown width/height */
+  // transform: translate(-50%, -50%);
+  /* If known, negative margins are probably better (less chance of blurry text). */
+  margin: -250px 0 0 -500px;
+  background: white;
+  box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.5);
+  // text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+
+  cl-image {
+    // display: none !important;
+  }
+
+  .rounded > img {
+    border-radius: 100px;
+  }
+
+  button {
+    width: 100px;
+
+    &#bSave {
+      background-color: #88DAF7;
+      color: #333333;
+    }
+  }
+
+  .image-cropper {
+    display: flex;
+
+    .result {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .loading {
+        width: 80px;
+        height: 60px;
+      }
+    }
+  }
+
+  button.btn {
+    cursor: pointer;
+  }
+
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+}

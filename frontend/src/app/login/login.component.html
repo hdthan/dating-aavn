@@ -1,0 +1,41 @@
+<div class="slideshow">
+  <div class="slideshow-image" style="background-image: url('assets/images/bg1.jpg')"></div>
+  <!-- <div class="slideshow-image" style="background-image: url('assets/images/bg2.jpg')"></div>
+  <div class="slideshow-image" style="background-image: url('assets/images/bg3.jpg')"></div>
+  <div class="slideshow-image" style="background-image: url('assets/images/bg4.jpg')"></div> -->
+
+  <div class="register_page">
+    <div class="title">
+      <h1>matchmixr</h1>
+    </div>
+
+    
+
+    <form #user="ngForm" (ngSubmit)="onSubmit(user, $event)" class="register-form login">
+      <input type="text" name="email" placeholder="Email" [ngModel]="loginUser.email" (focus)="refreshHandler()"
+        pattern="^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$" required #email = "ngModel"/>
+      <small  [ngClass]="{'error': !email.valid && !(email.pristine && !user.submitted) }" class="text-danger">
+          <div [hidden]="!email.hasError('required')">Email is required</div>
+          <div [hidden]="!email.hasError('pattern')">Email format should be abc@abc.com
+           </div>
+      </small>
+
+      <input type="password" name="password" placeholder="Password" [ngModel]="loginUser.password" (focus)="refreshHandler()"
+        pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required #password = "ngModel"/>
+      <small [ngClass]="{'error': !password.valid && !(password.pristine && !user.submitted) }" class="text-danger">
+          <div [hidden]="!password.hasError('required')">Password is required</div>
+          <div [hidden]="!password.hasError('pattern')">Mininum 8 character, at least one letter, one number</div>
+      </small>
+
+      <small class="error text-danger">
+        {{error}}
+      </small>
+      <input type="submit" name="login" value="Log in" class="button_group" [disabled]="!email.valid || !password.valid">
+
+      <p>Have an account?
+        <a [routerLink]="['/register']">Register</a>
+      </p>
+    </form>
+  </div>
+
+</div>

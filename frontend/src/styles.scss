@@ -1,0 +1,40 @@
+//Variables
+// -- Colors
+$blue: #88DAF7;
+$pink_N: #F28686;
+$black: #333; // -- Fonts
+$primary-font: Roboto, Arial, Helvetica, sans-serif;
+$logo_font: 'Montserrat', sans-serif; // Global style
+
+
+$black: #333;
+$bg: #F4F6F8;
+$silver: #bdc3c7;
+
+
+body {
+  font-family: $primary-font;
+
+
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+
+ul {
+  list-style: none;
+}
+
+
+// Components
+@import "app/app.component.scss";
+@import "app/home/home.component.scss";
+@import "app/register/register.component.scss";
+@import "app/login/login.component.scss";
+@import "app/quiz/quiz.component.scss"

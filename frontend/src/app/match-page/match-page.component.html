@@ -1,0 +1,91 @@
+<div class="card hovercard">
+    <div class="cardheader">
+    </div>
+    <div class="avatar">
+        <!-- <cl-image [public-id]="imageId" cloud-name="cocacode2" [width]="imageOption.width" [height]="imageOption.height" [x]="imageOption.x" [y]="imageOption.y" crop="crop" radius="max"></cl-image> -->
+        <img [src]="userReceive.avaImg" alt="" />
+        <h1>{{ userReceive.name }}</h1>
+    </div>
+
+</div>
+
+
+<!-- Percentage of Matching and Interest Button---------->
+<div class="text-center">
+
+  <div class="heart-rate">
+    <!-- heart-rate------->
+    <svg x="0px" y="0px" width="150px" height="73px" >
+      <polyline fill="none" stroke="#FF0000" stroke-width="3" stroke-miterlimit="10"
+        points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486 "/>
+    </svg>
+    <div class="fade-in"></div>
+    <div class="fade-out"></div>
+
+    <!-- heartbeat ----->
+    <label class="heart">❤</label>
+
+    <!-- percent ---->
+    <div class="percent" *ngIf="percentage" > Match {{percentage}}%</div>
+
+
+  </div>
+
+  <!-- button ----->
+
+    <button *ngIf="interest" (click)="interestShow()" id="bInterest" name="bInterest" class="btn btn-default" > Interest </button>
+    <button *ngIf="!interest" id="bAccepted" name="bAccepted" class="btn btn-default"> Interested </button>
+
+</div>
+
+  <!-- basic-information------->
+<div class="basic">
+  <div class="form-group">
+    <div class="row">
+      <label class="col-md-1 col-sm-1 col-xs-1 fa fa-briefcase"></label>
+      <label class="col-md-3 col-sm-3 col-xs-3 text-left"> Profession </label>
+      <label class="col-md-4 col-sm-4 col-xs-4 "> {{ userReceive.profession }}</label>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <label class="col-md-1 col-sm-1 col-xs-1 fa fa-venus-mars"></label>
+      <label class="col-md-3 col-sm-3 col-xs-3 text-left"> Gender </label>
+      <label class="col-md-4 col-sm-4 col-xs-4"> {{ userReceive.gender }}</label>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <label class="col-md-1 col-sm-1 col-xs-1 fa fa-birthday-cake"></label>
+      <label class="col-md-3 col-sm-3 col-xs-3 text-left"> Age </label>
+      <label class="col-md-4 col-sm-4 col-xs-4"> {{ getAge( userReceive.birthday) }}</label>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <label class="col-md-1 col-sm-1 col-xs-1 fa fa-home"></label>
+      <label class="col-md-3 col-sm-3 col-xs-3 text-left"> Address </label>
+      <label class="col-md-4 col-sm-4 col-xs-4"> {{ userReceive.address }}</label>
+    </div>
+  </div>
+</div>
+
+<!-- --------------------------->
+
+
+<!-- Message-Box----------->
+<div *ngIf="showDialog" class="dialog">
+
+    <div class="dialog-title">
+      <h3>IMPRESS YOUR TARGET</h3>
+    </div>
+    <textarea type="text" [(ngModel)]="countMessage" maxlength="160" name="message" style="font-style:italic" placeholder="You have one chance to impress your target. In 160 characters or less..."></textarea>
+    <p>{{countMessage.length}}/160</p>
+    <div class="dialog-button">
+      <button name="bSend" class="btn btn-default send" (click)="interest=false" (click)="sendMessage(countMessage)"> Send </button>
+      <button name="bCancel" class="btn btn-default" (click)="interestClose()"> Cancel</button>
+    </div>
+
+</div>
+
+<!-- --------------------------->

@@ -1,0 +1,27 @@
+
+<!-- <header>
+  <ul>
+    <li><a class="logo" [routerLink]="['/']">Home</a></li>
+
+    <li style="float:right"><a class="active" >Hoang Nam</a></li>
+  </ul>
+
+</header> -->
+
+<header>
+
+  <nav *ngIf="!router.isActive('/quiz')">
+    <ul>
+      <li><a class="logo" [routerLink]="['/user-page']">matchmixr</a></li>
+      <li class="user_link"><a class="user_name">My Account</a>
+        <ul>
+          <li><a  [routerLink]="['/user-profile']">My Profile</a></li>
+          <li><a  [routerLink]="['/target-list']">Target List</a></li>
+          <li><a href="#" (click)='logout()'>Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<router-outlet></router-outlet>
